@@ -10,6 +10,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class LoginController {
     @FXML
     private Label header;
@@ -18,19 +20,28 @@ public class LoginController {
     @FXML
     private TextField password;
     @FXML
-    private AnchorPane AnchorPane;
+    public AnchorPane AnchorPane;
 
 
-    public void Login(ActionEvent event){
+
+    public void LoadLoginScene(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(Main.class.getResource("style.css").toExternalForm());
+        stage.setTitle("JavaFX");
+        stage.setScene(scene);
+        stage.show();
+
+    }
+//    Authentication method, TODO: maybe put in a different file
+    public void Authenticate(){
         if (userName.getText().equals("a") && password.getText().equals("a")) {
             header.setText("Authenticated");
             try {
                 Stage stage = (Stage) AnchorPane.getScene().getWindow();
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("style.fxml"));
-                Scene scene = new Scene(fxmlLoader.load());
-                scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-                stage.setScene(scene);
-                stage.show();
+                CalculatorController CalculatorScene = new CalculatorController();
+                CalculatorScene.LoadCalculatorScene(stage);
+
             } catch (Exception e) {
                 System.out.println(e);
                 System.out.println(e.getStackTrace()[0]);

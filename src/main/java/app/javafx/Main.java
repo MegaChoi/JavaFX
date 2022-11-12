@@ -10,12 +10,13 @@ import java.io.IOException;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        scene.getStylesheets().add(Main.class.getResource("style.css").toExternalForm());
-        stage.setTitle("JavaFX");
-        stage.setScene(scene);
-        stage.show();
+        try {
+            LoginController login = new LoginController();
+            login.LoadLoginScene(stage);
+        }catch (Exception e){
+            System.out.println(e);
+            System.out.println(e.getStackTrace()[0]);
+        }
     }
     public static void main(String[] args) {
         launch();

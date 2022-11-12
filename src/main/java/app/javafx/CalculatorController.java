@@ -2,18 +2,50 @@ package app.javafx;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
-import javax.swing.*;
+import java.io.IOException;
 
-public class Controller {
+public class CalculatorController {
     @FXML
     private Label label;
     private float num1;
     private String operator = "";
     private boolean  start = true;
     Calculator calculator = new Calculator();
+
+    @FXML
+    VBox VBox;
+
+    public void LoadCalculatorScene(Stage stage) {
+        try {
+            float width = (float) stage.getWidth();
+            float height = (float) stage.getHeight();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("calculator.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            stage.setWidth(width);
+            stage.setHeight(height);
+            scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+            stage.setScene(scene);
+
+        }catch (Exception e){
+            System.out.println(e);
+            System.out.println(e.getStackTrace()[0]);
+        }
+    }
+
+    @FXML
+    public void logOut(ActionEvent event) throws IOException {
+        Stage stage = (Stage) VBox.getScene().getWindow();
+        LoginController login = new LoginController();
+        login.LoadLoginScene(stage);
+    }
 
     @FXML
     public void processNumbers(ActionEvent event){
