@@ -16,7 +16,7 @@
       </HBox>
       <StackPane prefHeight="50.0" prefWidth="200.0">
          <children>
-            <Label fx:id="label" lineSpacing="10.0" prefHeight="17.0" prefWidth="285.0">
+            <Label fx:id="label" lineSpacing="10.0" prefHeight="27.0" prefWidth="230.0">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -96,17 +96,22 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="300.0" spacing="10.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#processNumbers" prefHeight="39.0" prefWidth="110.0" text="0">
+            <Button mnemonicParsing="false" onAction="#processNumbers" prefHeight="39.0" prefWidth="50.0" text="0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#clear" prefHeight="39.0" prefWidth="50.0" text="Clear">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#processOperator" prefWidth="50.0" text="+">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
             <Button mnemonicParsing="false" onAction="#processOperator" prefWidth="50.0" text="=">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#processOperator" prefWidth="50.0" text="+">
                <font>
                   <Font size="18.0" />
                </font>

@@ -47,6 +47,14 @@ public class CalculatorController {
         login.LoadLoginScene(stage);
     }
 
+
+    @FXML
+    public void clear(ActionEvent event){
+        num1 = 0;
+        operator = "";
+        label.setText("");
+
+    }
     @FXML
     public void processNumbers(ActionEvent event){
         if (start){
